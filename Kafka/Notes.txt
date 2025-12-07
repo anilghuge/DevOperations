@@ -1,0 +1,98 @@
+Apache Kafka
+
+Part-1: Kafka EchoSystem
+
+Why apache kafka?
+
+What is apache kafka?
+
+Overview on Kafka API
+Kafka Core
+Kafka Connect
+Kafka Streams
+
+Kafka Instalation
+Single Node Cluster(Local and AWS Cloud)
+Multi Node Cluster( AWS Cloud)
+
+Kafka Storage Architecture
+Topics
+Partitions
+Replications
+Log Segments
+Message offsets and Index
+
+Kafka Cluster Architecture
+Zookeepers and Brokers
+Partition allocation and Fault Tolerance
+Leader Vs Follower
+
+Kafka Producer
+Record
+Partitioner
+Serializers and Deserializers -JSON Schema, AVRO Schema
+Multi Thread Kafka Producer
+Transactions in Kafka Producer
+
+Kafka Consumers
+Consumer Groups and Scalability
+Consumer Partitions and Offset
+
+Error handling, Retry and Recovery
+
+Kafka Security Using SSL
+
+Fault Tolerance and data recovery
+
+Apache Kafka Integration with Spring Boot and Micro services
+Part-2: Kafka Connect Framework
+
+Source Connector
+Source Connector
+Source Task
+
+Sink Connector
+Sink Connector
+Sink Task
+Kafka Streams
+
+Kafka Streams AP
+
+Kafka Streams Architecture
+
+Understanding the States and Stores
+
+KTable
+
+Kstream
+
+Streaming Joins
+
+==Single Node ===============
+
+1.creater zookeeper
+C:\software\mom\kafka_2.13-3.4.0>.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+2.create kafka-broker
+C:\software\mom\kafka_2.13-3.4.0>.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+3.create topic
+C:\software\mom\kafka_2.13-3.4.0>.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --create --topic test-topic --partitions=1 --replication-factor 1
+
+4.create kafka-producer
+C:\software\mom\kafka_2.13-3.4.0>.\bin\windows\kafka-console-producer --broker-list localhost:9092 --topic test-topic < C:\Users\anil.ghuge\Downloads\ROSTER_LIST.xlsx
+
+5.show data dump
+C:\tmp\kafka-logs\test-topic-0>kafka-dump-log --files 00000000000000000000.log
+Dumping 00000000000000000000.log
+Log starting offset: 0
+baseOffset: 0 lastOffset: 20 count: 21 baseSequence: 0 lastSequence: 20 producerId: 0 producerEpoch: 0 partitionLeaderEpoch: 0 isTransactional: false isControl: false deleteHorizonMs: OptionalLong.empty position: 0 CreateTime: 1743698440767 size: 6009 magic: 2 compresscodec: none crc: 1461872768 isvalid: true
+
+6.create consummer and show data
+C:\software\mom\kafka_2.13-3.4.0>.\bin\windows\kafka-console-consumer --bootstrap-server localhost:9092 --topic test-topic --from-beginning
+
+
+======= Mutiple Node ===========
+
+
+create project for this
